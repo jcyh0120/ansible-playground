@@ -49,14 +49,16 @@ ansible webserver -m shell -a "echo hello world"
 
 ## Ansible playbook
 
-Run playbook
-`ansible-playbook playbook.yml`
+```shell
+# Run playbook
+ansible-playbook playbook.yml
 
-Check nginx website
-`curl {{IP_ADDRESS}}`
+# Check nginx website
+curl {{IP_ADDRESS}}
 
-Copy index.html to nginx (Modify anything in index.html)
-`ansible-playbook --tags copyweb playbook.yml`
+# Copy index.html to nginx (Modify anything in index.html)
+ansible-playbook --tags copyweb playbook.yml
+```
 
 ## Reference
 
