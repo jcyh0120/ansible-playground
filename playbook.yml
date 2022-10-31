@@ -1,0 +1,24 @@
+--- 
+
+- hosts: all
+  become: true
+  tasks: 
+  - name: install nginx
+    apt:
+      name: nginx
+      state: latest
+  
+  - name: start nginx
+    service: 
+      name: nginx
+      state: started
+      enabled: yes
+  
+  - name: copy index.html
+    tags: copyweb
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
