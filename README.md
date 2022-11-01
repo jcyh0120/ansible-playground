@@ -6,31 +6,40 @@ Install Ansible
 
 ## Ansible node with multipass
 
-### Step1. Install [multipass](https://multipass.run/docs/how-to-guides#heading--install-multipass-)
+#### Step1. Install [multipass](https://multipass.run/docs/how-to-guides#heading--install-multipass-)
 
 For macOS simply
-`brew install --cask multipass`
+```brew install --cask multipass```
 
-### Step2. Prepare ssh key
+#### Step2. Prepare ssh key
 
-- Create ssh key 
-`ssh-keygen -C vmuser -f multipass-ssh-key`
+Create ssh key
+  
+```shell 
+ssh-keygen -C vmuser -f multipass-ssh-key
+```
 
-- Add your ssh public key `multipass-ssh-key.pub` to *cloud-init.yaml*
+Add your ssh public key `multipass-ssh-key.pub` to *cloud-init.yaml*
 
-### Step3. Create multipass instance
+#### Step3. Create multipass instance
 
-`multipass launch bionic -n vm1 --cloud-init cloud-init.yaml`
+```
+multipass launch bionic -n vm1 --cloud-init cloud-init.yaml
+```
 
-### Step4. Check ssh connection
+#### Step4. Check ssh connection
 
 Get instance IP address
-`multipass list`
+```
+multipass list
+```
 
 ssh connect to VM
-`ssh -i multipass-ssh-key vmuser@IP_ADDRESS`
+```
+ssh -i multipass-ssh-key vmuser@IP_ADDRESS
+```
 
-### Step5. Add to Ansible inventory
+#### Step5. Add to Ansible inventory
 
 replace VM1_IP_ADDRESS in *inventory* with vm1 IP address
 
